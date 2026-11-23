@@ -3,9 +3,11 @@
 A self-contained asset library for Decoding Brands edits: animation prompts, sound effects, music and visuals. Every asset is embedded in `index.html`, so it works offline. Open the file directly or serve it with GitHub Pages.
 
 ## Collections
-- **Animation Prompts**: GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report, Rockstar Studios World Map (each with a preview video, storyboard and full prompt)
-- **Sound Effects**: Soft Slide, Marker Pass, Cut Click
-- **Sound**: filter by **Originals**, **Think School** or **IDK Show**. Music cards show match status, artist, an evidence clip, store link and "heard in" YouTube timestamps. Data comes from the Think School / IDK Show music catalog scans.
+- **Animation Prompts**: Rockstar Studios World Map and Rockstar → RDR2: 87 Million Sold (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
+- **Sound Effects**: Soft Slide, Marker Pass, Cut Click, with waveform players.
+- **Sound (Music Catalog)**: Think School and IDK Show tabs, laid out like the music-catalog scan. Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
 - **Visuals**: Bottle Glass, Topaz Fold, Signal Field
+
+The player keeps a now-playing bar at the bottom of the page. Keys: Space or K plays/pauses, J and L go to the previous/next track, the arrow keys seek, and / jumps to the filter.
 
 The plain-text prompts are also in `prompts/`.

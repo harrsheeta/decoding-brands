@@ -1,0 +1,78 @@
+# Task: Build a motion-graphics clip ("Rockstar → Red Dead Redemption 2 → 87 million sold")
+
+You are making a 1920×1080, 30 fps MP4 explainer clip, timed to a voiceover I'm attaching. Build it in code (Python with OpenCV/Pillow/numpy, ffmpeg for decoding and encoding). Render each frame at full size and pipe raw frames to ffmpeg (libx264, CRF ~17, yuv420p). Then mux my voiceover audio onto it. The video must be exactly as long as the voiceover.
+
+Before the full render, render 6–8 stills at the busiest moments, look at them yourself, and fix any problems first.
+
+## Assets to attach (I will upload these)
+1. **Voiceover:** a video or audio file whose audio is the VO. Transcribe it with word timestamps (for example faster-whisper) and time everything to the word cues below.
+2. **Background loop:** a dark, abstract animated video. Play it full-frame over pure black.
+3. **Red Dead Redemption 2 trailer** (letterboxed 1920×1080 with content at roughly 1920×808, y-offset 136). Always crop off the letterbox bars. Never show black bars inside the box.
+4. **Logo images:** Roblox, Epic Games, EA, Take-Two, Valve, NetEase, Nintendo, Rockstar, Xbox, PlayStation, Tencent.
+5. **NBA footage plus 4 NBA game-cover cards** (PNG with alpha). These are only for the first ~0.2 s, the carry-over from the previous scene.
+
+If any asset is missing, tell me which one. Don't invent or substitute footage or logos.
+
+## Fixed layout (never changes during the clip)
+- **Logo column (left side):** circles 196 px in diameter, centred at x = 182 (84 px left margin), 238 px apart vertically. The focused logo sits at y = 540.
+  - Each circle: light-grey fill with a subtle vertical gradient (about #F6F6F6 at top to #E0E0E0 at bottom) and a soft drop shadow.
+  - Each logo is a **black-only silhouette** centred inside. Convert colour logos by treating any non-white pixel as black and keeping the original alpha. Fit wide logos to about 66%×50% of the diameter and square-ish logos to about 56%.
+  - For the Rockstar logo (orange rounded square, black R, white star), keep **only the black parts**: outline, R and star outline.
+  - Column order, top to bottom: Roblox, Epic, EA, Take-Two, Valve, NetEase, Nintendo, **Rockstar**, Xbox, PlayStation, Tencent.
+- **Video box:** 1240×698, right edge 120 px from the frame edge (x = 560), vertically centred. Rounded corners with radius 26, a 4 px off-white border (RGB 232,232,232) and antialiased edges.
+  - **Everything plays inside this box.** Never expand it to fullscreen. Never scale, tilt or move it.
+  - Nothing (no logo, no beam, no overlay) may cover the box's footage.
+- **Torch beam:** a soft, diffused white light cone coming out of the right edge of the focused circle towards the box. It starts about 104 px tall at the circle and widens to about 660 px over 1000 px of length. Use a heavy Gaussian blur (σ ≈ 34), fade it out with distance, add a slightly brighter core near the source, and screen-blend it at about 42% opacity behind the circles and the box.
+  - **Beam entrance:** the beam grows outward over 0.75 s. At the same time it swings from 26° tilted upward down to flat, with a slight overshoot past flat before settling (about 1.05 s, ease-out-back).
+
+## Starting state (frame 0)
+This clip continues straight from a previous scene, so frame 0 must look like:
+- The column is centred on **Take-Two**, with Take-Two's beam fully on.
+- The box shows NBA footage dimmed to about 42%, with 4 NBA cover cards placed side by side, evenly spaced and vertically centred in the box (card height ~330 px with soft shadows).
+
+## Timeline (cue words from my VO; the times are from my original VO, so re-time to the transcript)
+| Time | VO cue | What happens |
+|---|---|---|
+| 0.12 s | "And **Rockstar**…" | The beam fades off (0.22 s). The column scrolls up **4 slots** with an ease-in-out over 1.05 s, so Rockstar lands in the centre. |
+| 0.20 s | right after | **Hard cut** in the box to RDR2 shot 1. The NBA cards vanish on the cut. |
+| 1.10 s | | The beam re-enters on Rockstar with the same grow-and-swing animation. |
+| 0.20–1.90 | | Shot 1: lone tree and rider silhouetted against the sunset (trailer ≈ 8.3 s). |
+| 1.90–3.60 | | Shot 2: sunlight beams through a forest (trailer ≈ 20.8 s). |
+| 3.60–5.40 | | Shot 3: farmer leading a horse through a golden field with mountains (trailer ≈ 30.9 s). |
+| 5.40–6.00 | "**cowboy**…" | Shot 4: rider silhouetted in a barn doorway with cattle outside (trailer ≈ 40.6 s). |
+| 6.00–6.62 | | Shot 5: cowboy standing in front of fire (trailer ≈ 49.4 s). |
+| 6.62–8.20 | "**Red Dead Redemption 2**" | The trailer's end title card (≈ 60.25 s), shifted down so the title is centred in the box. Cover the "FALL 2017" date under it with black, because it conflicts with the VO's "2018". |
+| 8.20 → end | "which itself has sold…" | **Hard cut** to the article mock-up (see below), showing the whole page. |
+| 9.15–9.90 | "…about **87 million**…" | Inside the box, the camera eases (ease-in-out) from the whole page to a 1.95× zoom centred on "87 million units". |
+| 9.85–10.30 | | A yellow (#FFD60A) highlighter box sweeps left to right behind "87 million units" (ease-out), and the text inside it turns black. |
+| → end | | Hold. |
+
+Rules for all the footage:
+- Pick shot in-points so that no shot crosses a scene cut. Use ffmpeg scene detection to check.
+- No shot may have text, logos or watermarks on it, except the title card.
+- Every shot must be cropped to **fill** the box (scale to cover, then crop the centre), with no bars and no stretching.
+- **No cross-dissolves anywhere.** Use hard cuts only.
+
+## Article mock-up (shown inside the box)
+Base it on the Insider Gaming article "Red Dead Redemption 2 has now Sold 87 Million Units" (Sam Sepiol, News, August 7, 2026). Copy the site's **look** but not its body text:
+- **Page:** 1240×1010 layout units, rendered at 3× for a sharp zoom. Dark page background (#161618).
+- **Top strip:** a thin purple gradient strip with small "INSIDER GAMING NETWORK" text. Below it, a centred two-line text wordmark "INSIDER / GAMING" in Montserrat ExtraBold. Use the text only, not their logo icon.
+- **Nav bar:** a rounded purple gradient bar (#4A128C → #9634EB) with white bold items: NEWS, EXCLUSIVES, REVIEWS, GUIDES, ESPORTS, TECH, GAMING CALENDAR.
+- **Byline:** "Sam Sepiol · News · August 7, 2026", small and light grey.
+- **Headline:** white, uppercase, Montserrat Bold ~33 px, two lines: "RED DEAD REDEMPTION 2 HAS / NOW SOLD 87 MILLION UNITS".
+- **Hero image:** a 700×394 rounded still taken from the RDR2 trailer (the cowboy-in-fire shot).
+- **Right sidebar:** two purple gradient promo boxes reading "SUBSCRIBE ON / YOUTUBE" and "LISTEN TO / INSIDER GAMING / WEEKLY".
+- **Body:** exactly **one** real line in white Montserrat Medium ~18 px: "Of that, Red Dead Redemption 2 has sold over 87 million units,". All other body lines, two above and four below, are **crisp, low-opacity, word-shaped rounded bars** (grey ~#4E4E54, varied word widths), not blurred and not real text. Do **not** reproduce the article's other paragraphs.
+- Fade the bottom of the page into the background.
+- Get Montserrat from npm (@fontsource/montserrat). Pillow can read its .woff files.
+
+## Delivery
+- Output an MP4 at 1920×1080, 30 fps, H.264, with my VO as AAC audio, the same length as the VO.
+- Before delivering, check frames at every cut, at the article zoom and during the highlight.
+- **Optional:** a separate sound-effects-only WAV (48 kHz stereo, no music), generated procedurally and synced to the events:
+  - a whoosh plus ticks for the column scroll
+  - a soft light swell for the beam
+  - light whooshes on the cuts
+  - a deep hit on the title card
+  - a whoosh for the article zoom
+  - a marker-swipe sound for the highlight
