@@ -222,9 +222,9 @@
 @media(max-width:670px){.pj{grid-template-columns:1fr}.pj-info strong{font-size:36px}.pj-playbtn{width:62px;height:62px;margin:-31px 0 0 -31px}}
 
 /* ===== animated projects band ===== */
-.pj-band,.pj-anim{position:relative;isolation:isolate;overflow:hidden;color:#f9f6e9;background:linear-gradient(115deg,#06231a,#0e5038,#1d6a48,#9c7440,#0e5038,#082b20,#06231a);background-size:320% 320%;animation:pjGrad 16s ease-in-out infinite}
+.pj-band,.pj-anim{position:relative;isolation:isolate;overflow:hidden;color:#f9f6e9;background:linear-gradient(115deg,#05201a,#0b3a2b,#14583e,#1f7a52,#0e5038,#082b20,#05201a);background-size:320% 320%;animation:pjGrad 16s ease-in-out infinite}
 @keyframes pjGrad{0%{background-position:0% 40%}50%{background-position:100% 60%}100%{background-position:0% 40%}}
-.pj-band .section-head h2{color:#f9f6e9}.pj-band .viewall{color:#ffca80;border-color:#ffca80}
+.pj-band .section-head h2{color:#f9f6e9}.pj-band .viewall{color:#f9f6e9;border-color:#f9f6e9}
 .pj-inner{position:relative;z-index:1;padding-top:44px;padding-bottom:52px}
 .pj-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .pj-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(#ffffff14 1px,transparent 1.4px) 0 0/22px 22px;mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
@@ -236,7 +236,7 @@
 .f1{top:22%;animation-delay:0s}.f2{top:55%;animation-delay:3s;width:160px}.f3{top:78%;animation-delay:6s;width:260px}
 @keyframes fly{0%{transform:translateX(-30vw);opacity:0}12%{opacity:.55}80%{opacity:.4}100%{transform:translateX(110vw);opacity:0}}
 .orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.35;animation:orb 14s ease-in-out infinite alternate}
-.o1{width:380px;height:380px;background:#ffca80;top:-120px;right:8%}.o2{width:320px;height:320px;background:#2f9a68;bottom:-140px;left:20%;animation-delay:-5s}
+.o1{width:420px;height:420px;background:#2f9a68;top:-140px;right:8%}.o2{width:340px;height:340px;background:#1f7a52;bottom:-150px;left:20%;animation-delay:-5s}.o3{width:260px;height:260px;background:#3fb37e;top:20%;left:55%;opacity:.18;animation-delay:-9s}
 @keyframes orb{to{transform:translate(-120px,60px) scale(1.15)}}
 .pj-band .pj{border-color:#ffffff2a;box-shadow:0 30px 60px -30px #000c}
 .pj-pitch{display:flex;flex-direction:column;justify-content:center;gap:14px;padding:10px 10px 10px 30px}
@@ -494,11 +494,11 @@ P.bar.innerHTML='<canvas class="np-viz"></canvas><div class="np-info"><strong cl
 document.body.append(P.bar);P.bar.querySelector(".np-auto input").onchange=e=>{P.auto=e.target.checked};
 
 /* ---------- projects ---------- */
-const ARROW_BG='<div class="pj-bg" aria-hidden="true"><span class="lane l1"></span><span class="lane l2"></span><span class="lane l3"></span><span class="lane l4"></span><svg class="fly f1" viewBox="0 0 220 40"><path d="M4 20h196M180 6l18 14-18 14"/></svg><svg class="fly f2" viewBox="0 0 220 40"><path d="M4 20h196M180 6l18 14-18 14"/></svg><svg class="fly f3" viewBox="0 0 220 40"><path d="M4 20h196M180 6l18 14-18 14"/></svg><span class="orb o1"></span><span class="orb o2"></span></div>';
+const ARROW_BG='<div class="pj-bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>';
 const projAssets=id=>catalog.filter(a=>a.project===id);
 function projCard(p,big){
  const n=projAssets(p.id).length;
- return '<a class="pj'+(big?' big':'')+'" href="#/projects/'+p.id+'"><span class="pj-thumb"><img src="'+p.thumb+'" alt=""><span class="pj-count">'+n+' animation'+(n===1?'':'s')+'</span></span><span class="pj-info"><span class="pj-eyebrow">Project</span><strong>'+esc(p.name)+'</strong><span class="pj-sub">'+esc(p.title)+'</span><span class="pj-go">View animations →</span></span></a>';
+ return '<a class="pj'+(big?' big':'')+'" href="#/projects/'+p.id+'"><span class="pj-thumb"><img src="'+p.thumb+'" alt=""><span class="pj-count">'+n+' animation'+(n===1?'':'s')+'</span></span><span class="pj-info"><span class="pj-eyebrow">Project</span><strong>'+esc(p.name)+'</strong><span class="pj-sub">'+esc(p.title)+'</span><span class="pj-go">View animations</span></span></a>';
 }
 function projectsPage(id){
  const list=Object.values(projects);
@@ -519,7 +519,7 @@ render=function(){
   main.innerHTML=projectsPage(id);document.title=(projects[id]?projects[id].name+" · ":"")+"Projects — Decoding Brands";hydrate(main);enhance(main,true);countUp(main);
  }else if(!page){
   const coll=main.querySelector(".hero+.section");
-  if(coll)coll.insertAdjacentHTML("beforebegin",'<section class="pj-band">'+ARROW_BG+'<div class="section pj-inner"><div class="section-head"><h2>Projects</h2><a class="viewall" href="#/projects">All projects →</a></div><div class="pj-row">'+Object.values(projects).map(p=>projCard(p)).join("")+'<div class="pj-pitch"><span class="pj-arrows" aria-hidden="true"><i></i><i></i><i></i></span><p>Every animation, mapped to the video it was made for.</p><a class="pj-cta" href="#/projects">Browse projects <b>→</b></a></div></div></div></section>');
+  if(coll)coll.insertAdjacentHTML("beforebegin",'<section class="pj-band">'+ARROW_BG+'<div class="section pj-inner"><div class="section-head"><h2>Projects</h2><a class="viewall" href="#/projects">All projects</a></div><div class="pj-row">'+Object.values(projects).map(p=>projCard(p)).join("")+'<div class="pj-pitch"><p>Every animation, mapped to the video it was made for.</p><a class="pj-cta" href="#/projects">Browse projects</a></div></div></div></section>');
   hydrate(main);
  }
 };
