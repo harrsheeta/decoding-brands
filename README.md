@@ -4,6 +4,7 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 
 ## Projects
 - **GTA VI** ("Why 13 years?", https://youtu.be/at8pz2XJtPg): every animation made for this video, with its thumbnail. Animation cards link to their project.
+- **Jet Airways** ("The Fall of Jet Airways", https://youtu.be/zRBjDdCRpZs): Indian Airlines Bad Service, Article → 1993 → Four Planes, Half the Planes a Quarter of the Staff, Mumbai → London, Jet Airways Growth Chart 2009–2018.
 
 ## Collections
 - **Animation Prompts**: Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.

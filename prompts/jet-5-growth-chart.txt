@@ -1,0 +1,197 @@
+Create and render the animation described below. Do the actual production work, not just a storyboard, explanation, or another prompt. Deliver the finished MP4 and editable source.
+
+This brief is self-contained. Do not ask me about style, timing, colours, fonts, layout, software, or export settings. Make those decisions using the specifications below. Only ask for images if essential aircraft assets cannot be obtained or recreated faithfully. If images are needed, request all missing assets in one message while continuing the procedural graphics work.
+
+PROJECT
+A 10.410-second cinematic documentary motion graphic:
+1. A blue dimensional bar chart builds from 2009 to 2018.
+2. Its final bar turns gold and a gold growth line connects the values.
+3. A large Jet Airways aircraft appears over the chart.
+4. The chart dissolves into a dark aviation scene with moving clouds and smaller passenger aircraft passing behind the main aircraft.
+
+OUTPUT AND FRAMING
+• 3840 × 2160, 16:9.
+• 29.97 fps (30000/1001), 312 frames.
+• H.264 MP4, high quality.
+• The reference has a deliberately smaller centred animation surrounded by substantial black space. Preserve this.
+• Build the animation on an internal 1920 × 1080 stage and place it at x=960, y=540 within the 3840 × 2160 output. This occupies the central 50% of the output width and height.
+• All coordinates below refer to that internal 1920 × 1080 stage.
+• Do not automatically enlarge the animation to fill the outer output.
+• No titles, subtitles, captions, legend, watermark, or additional editorial text.
+• If the original reference video is supplied, use it to refine these approximate timings and positions. It takes priority over small discrepancies in this written brief.
+• If the reference is unavailable, proceed from this specification without requesting it.
+
+VISUAL STYLE
+Restrained documentary graphics with realistic aircraft photography and clean, precisely rendered typography.
+
+Background:
+• Deep navy centre, approximately #0D203B, fading toward nearly black edges.
+• Strong soft vignette; corners merge into the surrounding black canvas.
+• Subtle blue atmospheric illumination behind the main subject.
+• No stars, decorative particles, lens flares, neon outlines, or futuristic HUD elements.
+
+GRAPH DESIGN
+Use editable vector geometry or genuine 3D objects for the graph. Do not generate the graph or text as an AI image.
+
+Final graph layout:
+• Baseline runs approximately from (318, 834) to (1660, 834).
+• Left axis at x=318, extending upward to around y=225.
+• Ten bars, evenly spaced, with centres approximately:
+  394, 522, 650, 778, 906, 1034, 1162, 1290, 1418, 1546.
+• Front-face bar width approximately 74 px.
+• Small extruded top and right faces create a restrained 3D effect.
+• Extrusion offset approximately (+14, −10) px.
+• All bars share exactly the same baseline.
+• At the final settled scale, bar height = value / 43.3 × 174 px.
+
+Exact displayed data:
+2009 — 43.3M
+2010 — 51.5M
+2011 — 60.7M
+2012 — 58.8M
+2013 — 61.4M
+2014 — 67.4M
+2015 — 81.1M
+2016 — 99.9M
+2017 — 117.2M
+2018 — 138.9M
+
+These are the numbers displayed in the reference. Reproduce them as supplied; do not replace them with researched figures or invent a chart title.
+
+Bar appearance:
+• 2009–2017: medium cobalt blue front faces, lighter top faces, darker right faces.
+• Subtle vertical shading and depth, not shiny plastic.
+• Approximate blue palette: #315FA5, #4B7CCB, #203D69.
+• 2018 becomes muted gold: approximately #B99B4C, with a lighter top face and darker side face.
+• Gold feels subdued and editorial, not fluorescent yellow.
+
+Axes:
+• Thin muted blue-grey strokes.
+• Fine, faint dashed horizontal grid lines.
+• Y-axis labels: “1×”, “2×”, “3×”.
+• Position these at heights corresponding to 43.3, 86.6, and 129.9.
+• Year labels below the baseline.
+• Value labels above each completed bar, with consistent spacing.
+• White value labels; muted blue-grey years and axis labels.
+• At the gold reveal, the 2018 year, 138.9M value, and 3× label become gold.
+
+Typography:
+• Narrow, bold, condensed sans serif, similar to Barlow Condensed Bold or DIN Condensed Bold.
+• Choose the closest available font automatically.
+• Approximate internal-stage sizes: values 30 px, years 36 px, multiplier labels 40 px.
+• Keep all values the same size and all years the same size.
+• Crisp text, no distorted lettering, no unnecessary outlines.
+
+ANIMATION TIMELINE
+Use these as reconstruction targets, adjusting slightly if the original reference is available.
+
+0.00–3.85 seconds — sequential chart construction:
+• Begin with the navy background and axes already visible.
+• The first bar is beginning to rise at the opening; do not add a long intro.
+• Reveal bars from 2009 through 2018 in chronological order.
+• Start a new bar approximately every 0.38 seconds.
+• Each bar grows vertically from the baseline over approximately 0.40 seconds.
+• Use smooth cubic ease-out, with no spring, bounce, or overshoot.
+• Keep the extrusion coherent as each bar grows.
+• Reveal each year with its corresponding bar.
+• Fade in each final value label as the bar approaches its finished height.
+• Labels show the final values; do not animate numerical counters.
+• Previously completed bars remain visible.
+
+Framing during the build:
+• Start with a slightly closer view of the first few bars.
+• Gradually pull back and reframe so the complete ten-bar chart fits comfortably.
+• Keep this subtle and continuous, approximately a 1.2× to 1.0× scale adjustment.
+• Animate the graph and axes as one coordinated scene.
+• Settle the framing by approximately 3.85 seconds.
+
+3.75–4.30 seconds — completed growth chart:
+• Finish the 2018 bar and change it to gold.
+• Draw a thin gold line from left to right across the tops of the bars.
+• The line follows the actual values, including the small dip from 2011 to 2012.
+• Add small restrained gold markers at the data points.
+• Keep the line around 2–3 px thick at internal-stage resolution.
+• Let the finished graph register briefly before the transition.
+• No dramatic flash or camera shake.
+
+4.30–5.35 seconds — transition into aviation:
+• Introduce a realistic Jet Airways passenger aircraft in front of the chart.
+• Aircraft faces left: nose left, tail right, visible side and slight underside.
+• White fuselage, dark navy tail, gold Jet Airways emblem and gold/navy detailing.
+• Preserve the realistic wing, engine, and landing-gear details of the selected source image.
+• Bring it in through a short smooth opacity/position transition, settling near the centre.
+• Main aircraft occupies approximately 40–43% of the internal-stage width.
+• Position its centre around (960, 470), slightly above the stage’s vertical centre.
+• The chart remains briefly visible behind the aircraft, then fades away as a complete group.
+• Simultaneously fade in clouds across the bottom and smaller aircraft at different depths.
+• By around 5.35 seconds, chart bars, axes, values, years, and gold line have fully disappeared.
+• This is an overlapping dissolve, not a hard cut or a morph of bars into aircraft.
+
+5.35–10.410 seconds — layered aircraft scene:
+• Keep the large Jet Airways aircraft as the visual anchor near the centre.
+• It faces left and remains mostly steady, with only very subtle positional drift.
+• Do not rotate it dramatically or animate its wings.
+• Place smaller realistic white passenger aircraft with orange/red tails behind it.
+• Most smaller aircraft face and travel toward the right.
+• Use several horizontal flight lanes:
+  – upper sky around y=240–320;
+  – upper-middle around y=380–450;
+  – lower-middle around y=660–780;
+  – low background around y=850–930.
+• Stagger their starts and let them enter and exit beyond the stage edges.
+• Show around 3–6 secondary aircraft at any given time.
+• Vary their widths approximately between 140 and 350 px to create depth.
+• Distant aircraft: smaller, dimmer, softer, slower.
+• Nearer secondary aircraft: somewhat larger and faster, while remaining behind the hero aircraft.
+• Use smooth horizontal movement with no random wobbling.
+• Add subtle horizontal motion trails behind the passing aircraft.
+• Trails should be low-opacity grey-blue streaks, not thick white contrails or neon beams.
+• Keep the hero aircraft sharper than the moving background aircraft.
+
+Clouds:
+• Photographic-looking dark blue-grey clouds fill the lower quarter to third of the internal stage.
+• Use multiple soft layers with slow horizontal parallax.
+• Include small illuminated patches within the clouds, maintaining the dark overall exposure.
+• Clouds should not obscure the hero aircraft.
+• No cartoon cloud shapes, hard-edged smoke, or obvious repeating texture seams.
+
+Ending:
+• Continue the aircraft and cloud movement until the final frame.
+• Do not add an outro, logo, fade to black, or sudden zoom.
+• Preserve the smaller centred presentation through the ending.
+
+ASSET HANDLING
+The graph, gradients, axes, labels, line, trails, and animation must be constructed procedurally. They do not require uploaded images.
+
+Only photographic aircraft cutouts and cloud textures may require image assets:
+1. A left-facing Jet Airways passenger jet in side/three-quarter view.
+2. A right-facing white passenger jet with an orange/red tail, reusable at different scales.
+3. An optional cloud texture with soft transparency.
+
+Use existing supplied assets first. If suitable assets can be sourced or created with available tools, proceed without asking me. For exact airline fidelity, prefer real photographic cutouts. Do not replace the aircraft with clip-art, icons, silhouettes, or visibly inaccurate generated logos.
+
+If essential aircraft images are unavailable, ask once for the specific missing cutouts. Do not ask me to create images of the chart or provide details already covered here.
+
+TECHNICAL DELIVERY
+• Choose the available implementation that can render this reliably: After Effects scripting, Blender, Remotion, or another deterministic compositing workflow.
+• Keep graph components, text, aircraft, clouds, and motion trails on separate editable layers or objects.
+• Use frame-based timing so the exported video reproduces the preview.
+• If original audio is supplied with the reference, preserve it unchanged and in sync. Otherwise export silent; do not invent narration or music.
+• Deliver the rendered MP4, editable project/source, and required assets.
+• If video rendering is genuinely unavailable, state that clearly and provide a complete runnable project with export instructions. Do not claim that an unrendered project is a finished video.
+
+QUALITY CHECK BEFORE DELIVERY
+Inspect opening, mid-build, completed-chart, transition, aviation, and final frames.
+Verify:
+• Every year and value is correct.
+• The 2012 bar is slightly shorter than 2011.
+• Bars rise from one baseline.
+• Labels do not collide.
+• The 2018 bar and final highlight are gold.
+• The chart fully disappears after the transition.
+• The hero aircraft faces left; passing aircraft mostly move right.
+• Cutout edges are clean.
+• The outer black margins are preserved.
+• No extra text, distorted aircraft, bouncing animation, or unintended end transition appears.
+
+Proceed with the work now. Do not stop after proposing a plan or ask me whether to continue.
