@@ -1,0 +1,122 @@
+ROLE
+You are a motion designer. Build a finished 1920x1080, 30fps H.264 MP4 (CRF ~16, preset veryfast, yuv420p, AAC audio) with Python (numpy + OpenCV + Pillow) and ffmpeg. Render every frame in code. Don't ask me questions. Make sensible choices, render, check stills, fix problems, then deliver the MP4.
+
+INPUTS (I attach these)
+1. BASE VIDEO: [file] – footage plus my voiceover. Keep its audio as the only soundtrack. The output is exactly as long as this video.
+2. WORLD MAP IMAGE: [file] – dark, game-style world map (dark land, dark blue-grey sea, white roads).
+3. LOGO: [file] – company logo PNG (transparent or palette background).
+4. POINTER IMAGE (optional): [file]. If missing, draw your own pin (see PINS).
+5. LOCATIONS (name shown on the label → real city it marks):
+   - [LABEL 1] → [City, Country]
+   - [LABEL 2] → [City, Country]
+   - [LABEL 3] → [City, Country]
+   - [LABEL 4] → [City, Country]
+   - [LABEL 5] → [City, Country]
+   HIGHLIGHT LOCATION (zoomed to at the end): [LABEL X]
+6. TEXT:
+   - Menu title (top-left): [e.g. Grand Theft Auto V]
+   - Info block, world phase (3 lines, top-right): [e.g. ROCKSTAR STUDIOS / WORLDWIDE / 5 COUNTRIES]
+   - Info block, highlight phase (3 lines): [e.g. BANGALORE / ROCKSTAR INDIA / KARNATAKA, INDIA]
+   - Tabs: [MAP, BRIEF, STATS, SETTINGS, GAME, ONLINE] (first tab active)
+7. TRIGGER WORDS (find each one's start time from a word-level transcript):
+   - UI_IN word: ["and" – the "and" before "this work is spread across"]
+   - LOGO word: ["Rockstar" in "Rockstar studios"]
+   - PINS word: ["five" in "five different countries"]
+   - ZOOM word: ["One" in "One of the studios…"]
+
+STEP 1 – TIMING
+Transcribe the base video's audio with faster-whisper (base.en, int8, word_timestamps=True). Decode the audio to 16 kHz mono float32 through an ffmpeg pipe and pass the numpy array in, not the file path. Print every word with its start and end times. Set each event to its trigger word's start time. The zoom may start up to 0.1s after its word.
+
+STEP 2 – BACKGROUND
+- Before UI_IN, the base video plays untouched.
+- From UI_IN, over 0.45s (ease-in-out), crossfade the video into a blurred olive-green version of itself:
+  - blur: downscale to 480x270, Gaussian sigma ~3.2, upscale back;
+  - colour: luminance L, normalised as (L-0.08)/0.85 and clamped to 0–1, mapped through a 3-stop ramp: dark (14,26,8) → mid (78,104,34) at L=0.55 → light (212,200,128);
+  - final: (ramp*0.92 + blurred original*0.08) * 0.82.
+  The result should look like a moody, slightly yellow-olive game pause-menu background, not neon green.
+- The video keeps playing underneath for the whole clip.
+
+STEP 3 – MENU LAYOUT (game pause-menu style, 1920x1080)
+- Content runs from x=105 to x=1815.
+- Title: Barlow Condensed SemiBold 78px, white, soft black drop shadow, baseline near y=212, left-aligned at x=105.
+- Info block, top-right:
+  - a 106x106 tile at the right edge (x 1709–1815, y≈118): dark green-black (20,26,22,235) with a thin white 35%-opacity border and a small pin icon inside;
+  - left of the tile, 3 right-aligned lines in Barlow Condensed SemiBold 34px, white with soft shadow, 33px line spacing.
+  - No character portraits, game characters or brand art.
+- Tab row: y≈243, height 52, six equal tabs across the content width, 3px gaps.
+  - Inactive tabs: black at ~70% opacity, light-grey uppercase Inter Regular 25px, centred.
+  - Active (first) tab: (240,240,240) fill, near-black text, 5px green bar (110,200,110) on its top edge.
+- Chevrons: white ‹ and › (5px stroke), just outside the tab row on each side.
+- Map panel: x=105, y=306, 1710x634, sitting just under the tabs.
+- Hint bar, bottom-right: right edge x=1860, y≈1004, height 44, black at ~72% opacity.
+  - Items: "Browse [Q][E]  Social Club [Caps]  Hide Menu [Tab]  Back [Esc]  Select [↵]"
+  - Inter Regular 24px labels; keys are small light-grey rounded squares with dark Inter Medium 17px text.
+- Fonts: download Barlow Condensed (SemiBold, Medium) from raw.githubusercontent.com/google/fonts/main/ofl/barlowcondensed/. Inter ships with the system.
+
+STEP 4 – UI ENTRANCE (from UI_IN; ease-out cubic unless stated)
+- Panel: fades in and rises 30px over 0.4s, starting 0.05s after UI_IN.
+- Title + tab row: fade in from 0.1s; title slides in 30px from the left, tabs drop 20px.
+- Info tile: fades in from 0.2s, dropping 16px.
+- Info text: reveals with a horizontal wipe plus fade from 0.25s.
+- Chevrons: fade in from 0.3s, sliding 12px outward-in.
+- Hint bar: fades in from 0.35s, rising 20px.
+
+STEP 5 – WORLD MAP IN PANEL
+- Fill the panel with the map, centred near the map's horizontal middle (+40px) and around y≈38% of its height. Zoom = panel width / map width × 1.02.
+- Add a slow push-in: +3% over ~4.5s.
+- Drive all map transforms with one affine matrix (cv2.warpAffine, BORDER_REPLICATE). Place pins with the same matrix so they stay locked to the map.
+- Finding each city on the map:
+  - Make zoomed crops of the right regions (3x, red 10px grid with coordinate labels).
+  - Look at the crops and read each city's pixel position against the real coastline and geography.
+  - Print the coordinates you chose.
+
+STEP 6 – LOGO (at LOGO word)
+- Scale the logo to ~42% of 544px wide (~230px). Place it in the centre of the map panel.
+- Under it, a soft black drop shadow (offset 5,10, blur 12, ~75% opacity).
+- Pop-in: 0.45s back-ease scale (overshoot 2.0) plus a quick fade.
+- Shine: ~0.45s after the pop, a glare sweeps across the logo from top-left to bottom-right over 0.75s (ease-in-out). It's a diagonal band along x+y:
+  - a wide soft gaussian band (~0.85 strength);
+  - a thin sharp streak trailing it (~0.5 strength);
+  - masked to the logo's opaque pixels, blended towards white.
+
+STEP 7 – PINS + LABELS (at PINS word; all five together, not one by one)
+- PIN, if no pointer image is given: draw it 4x supersampled, then downscale:
+  - white teardrop (circle plus a downward point);
+  - green (110,200,110) inner circle with a white centre dot;
+  - about 54x78px final, anchored at the tip;
+  - add a drop shadow (offset 4,7, blur 6) and a soft green glow (140,255,140, blur 9).
+  If I give a pointer image, use it the same way: tip-anchored, with shadow and glow.
+- Pin animation: drop 30px with a 0.35s back-ease scale (overshoot 2.2).
+- LABEL: plain uppercase name only (city name).
+  - White (240,240,240) box, 38px tall, Inter Medium 22px dark text, ~14px horizontal padding.
+  - Green accent bar ~5px wide on the side of the box facing the pin: labels left of their pin get the bar on the right; labels right of their pin get it on the left.
+  - Starts 0.18s after its pin. The box wipes open left to right (first 55% of 0.55s), then the text rises 16px and fades in.
+- Default label position: right of the pin (x+26), top at y-66.
+- LAYOUT RULES:
+  - Every label stays fully inside the map panel. Clamp it, or flip it to the other side or below the pin (y-30).
+  - No pins or labels overlap. If two cities are close (e.g. Toronto/Oakville vs New York), nudge the less important pin slightly away and put the two labels on opposite sides.
+  - Draw pins, labels, logo and rings into the panel region only, so everything clips to the map rectangle.
+
+STEP 8 – HIGHLIGHT ZOOM (at ZOOM word, 1.0s, ease-in-out)
+- Stay on the same world map; no switch to another map.
+- Zoom in gently (about 2.6x the starting zoom) and pan so the highlight pin plus its label sit together, centred as one group in the panel:
+  - group width = pin (~54px) + gap + label width;
+  - group height = from the pin's top to its tip;
+  - target map centre = (cityX + (labelWidth/2)/zoom, cityY − 34/zoom), interpolated from the start centre by the zoom progress.
+- During the first half of the zoom, the other four pins, their labels and the logo fade out. The highlight pin and label stay at full opacity.
+- After the zoom: a slow extra push-in (~2.5%), and a white pulse ring (ellipse) under the highlight pin's tip on a 1.1s loop.
+- Info block: about 0.25s into the zoom, the world lines wipe out over 0.3s, then the highlight-phase lines wipe in.
+
+STEP 9 – RENDER + QC
+- Stream base-video frames from an ffmpeg rawvideo pipe and composite each frame in float32. Pipe the output to ffmpeg with the base video's audio mapped in, using -shortest.
+- Before the full render, save stills at: just after UI_IN, mid logo shine, just after the pins appear, mid zoom, end.
+- Look at each still and check:
+  - the tint is olive, not neon;
+  - all labels are inside the map;
+  - no overlaps;
+  - accent bars face the pins;
+  - the highlight group is centred;
+  - nothing draws outside the panel.
+- Fix anything wrong, then render the full video and check its duration matches the input.
+
+DELIVER: the MP4, plus a short list of the detected trigger times and the pixel coordinates used for each city.
