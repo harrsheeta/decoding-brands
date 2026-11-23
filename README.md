@@ -2,6 +2,9 @@
 
 A self-contained asset library for Decoding Brands edits: animation prompts, sound effects, music and visuals. Every asset is embedded in `index.html`, so it works offline. Open the file directly or serve it with GitHub Pages.
 
+## Projects
+- **GTA VI** ("Why 13 years?", https://youtu.be/at8pz2XJtPg): every animation made for this video, with its thumbnail. Animation cards link to their project.
+
 ## Collections
 - **Animation Prompts**: Rockstar Studios World Map and Rockstar → RDR2: 87 Million Sold (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
 - **Sound Effects**: Marker Pass, Cut Click, with waveform players.
