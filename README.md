@@ -5,9 +5,10 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 ## Projects
 - **GTA VI** ("Why 13 years?", https://youtu.be/at8pz2XJtPg): every animation made for this video, with its thumbnail. Animation cards link to their project.
 - **Jet Airways** ("The Fall of Jet Airways", https://youtu.be/zRBjDdCRpZs): Indian Airlines Bad Service, Article → 1993 → Four Planes, Half the Planes a Quarter of the Staff, Mumbai → London, Jet Airways Growth Chart 2009–2018, Oil Prices → Jet Loses IndiGo Profits, Departures Board 2003 → 2007, Air Sahara Blueprint Plan, JetLite: Still Air Sahara Inside. The last four play as YouTube embeds.
+- **Meta** (https://youtu.be/WvUH0ooAwOM): prompts 09–17. Prompts 10–15 play as YouTube embeds. 09, 16 and 17 are saved as prompts and marked "Video coming" until their renders are added.
 
 ## Collections
-- **Animation Prompts**: Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
+- **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
 - **Sound Effects**: Marker Pass, Cut Click, with waveform players.
 - **Sound (Music Catalog)**: Think School and IDK Show tabs, laid out like the music-catalog scan. Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
 - **Visuals**: Topaz Fold, Signal Field
