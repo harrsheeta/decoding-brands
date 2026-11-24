@@ -13,6 +13,8 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **Sound (Music Catalog)**: Think School and IDK Show tabs, laid out like the music-catalog scan. Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
 - **Visuals**: Topaz Fold, Signal Field
 
+The home page has a playable Realtime Piano under Projects (keyboard Z–M and Q–] rows, mouse or touch, with volume).
+
 The player keeps a now-playing bar at the bottom of the page. Keys: Space or K plays/pauses, J and L go to the previous/next track, the arrow keys seek, and / jumps to the filter.
 
 The plain-text prompts are also in `prompts/`.
