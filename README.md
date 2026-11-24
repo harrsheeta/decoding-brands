@@ -8,12 +8,12 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **Meta** (https://youtu.be/WvUH0ooAwOM): prompts 09–17. All nine play as YouTube embeds.
 
 ## Inspo
-Reference videos to learn from, filterable by Motion Graphics, 1/2/3 Cards, Article Animation and Graph Animation. They play as YouTube embeds and aren't tied to a project.
+Reference videos to learn from, filterable by Motion Graphics, 1/2/3 Cards, Article Animation and Graph Animation. They play as YouTube embeds (muted preview on hover, click for sound) and aren't tied to a project. Prompts 18–24 are attached to their videos; 25 and 26 are saved in `prompts/` and will show once their videos are added.
 
 ## Collections
 - **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
 - **Sound Effects**: Marker Pass, Cut Click, with waveform players.
-- **Sound (Music Catalog)**: Think School, IDK Show and Fern tabs, laid out like the music-catalog scan (Fern lists the 36 tracks credited in The iPhone Battery Conspiracy). Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
+- **Sound (Music Catalog)**: Think School, IDK Show and Fern tabs, laid out like the music-catalog scan (Fern lists the 36 tracks credited in The iPhone Battery Conspiracy; its 25 Epidemic Sound tracks stream their store preview in the waveform player). Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
 - **Visuals**: Topaz Fold, Signal Field
 
 The home page has a playable Realtime Piano under Projects (keyboard Z–M and Q–] rows, mouse or touch, with volume).
