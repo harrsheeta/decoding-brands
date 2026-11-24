@@ -695,7 +695,7 @@ const PIANO=(()=>{
  return {mount,active:()=>active()};
 })();
 const _r3=render;
-render=function(){_r3();const page=location.hash.slice(2).split("?q=")[0];if(!page){const band=main.querySelector(".pj-band");if(band)PIANO.mount(band)}};
+render=function(){_r3();const page=location.hash.slice(2).split("?q=")[0];if(!page){const col=main.querySelector(".collection"),anchor=col?col.closest("section"):main.querySelector(".pj-band");if(anchor)PIANO.mount(anchor)}};
 const projects={"gta-vi": {"id": "gta-vi", "name": "GTA VI", "title": "Why 13 years? GTA V (2013) \u2192 GTA VI (2026)", "youtube": "at8pz2XJtPg", "thumb": "/media/proj-gta-vi.jpg"}, "meta-ai": {"id": "meta-ai", "name": "Meta", "title": "Meta AI video", "youtube": "WvUH0ooAwOM", "thumb": "/media/proj-meta.jpg"}, "jet-airways": {"id": "jet-airways", "name": "Jet Airways", "title": "The Fall of Jet Airways (2019)", "youtube": "zRBjDdCRpZs", "thumb": "/media/proj-jet-airways.jpg"}};
 function card(a){if(a.track)return musicCard(a);
 const id=catalog.indexOf(a),isPrompt=a.category==="prompts",sound=a.file.endsWith(".wav");
