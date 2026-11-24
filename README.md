@@ -12,7 +12,7 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
 - **Sound Effects**: Marker Pass, Cut Click, with waveform players.
 - **Sound (Music Catalog)**: Think School, IDK Show and Fern tabs, laid out like the music-catalog scan (Fern lists the 36 tracks credited in The iPhone Battery Conspiracy; its 25 Epidemic Sound tracks stream their store preview in the waveform player). Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
-- **Visuals**: Topaz Fold, Signal Field
+- **Visuals (brand assets)**: master logo, brand style guide 2024, brand pattern, paper texture, podcast logo intro, end screens, podcast thumbnails (PSD), and After Effects / Illustrator source files. The full files live in `assets/brand/` and download from the vault when it's served from this repo.
 
 The home page has a playable Realtime Piano under Projects (keyboard Z–M and Q–] rows, mouse or touch, with volume).
 
