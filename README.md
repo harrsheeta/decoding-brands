@@ -6,9 +6,7 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **GTA VI** ("Why 13 years?", https://youtu.be/at8pz2XJtPg): every animation made for this video, with its thumbnail. Animation cards link to their project.
 - **Jet Airways** ("The Fall of Jet Airways", https://youtu.be/zRBjDdCRpZs): Indian Airlines Bad Service, Article → 1993 → Four Planes, Half the Planes a Quarter of the Staff, Mumbai → London, Jet Airways Growth Chart 2009–2018, Oil Prices → Jet Loses IndiGo Profits, Departures Board 2003 → 2007, Air Sahara Blueprint Plan, JetLite: Still Air Sahara Inside. The last four play as YouTube embeds.
 - **Meta** (https://youtu.be/WvUH0ooAwOM): prompts 09–17. All nine play as YouTube embeds.
-
-## Inspo
-Reference videos to learn from, filterable by Motion Graphics, 1/2/3 Cards, Article Animation and Graph Animation. They play as YouTube embeds (muted preview on hover, click for sound) and aren't tied to a project. Prompts 18–24 are attached to their videos; 25 and 26 are saved in `prompts/` and will show once their videos are added.
+- **Inspo**: reference animations from the idk show (prompts 18–24), played as YouTube embeds with a muted preview on hover. Prompts 25 and 26 are saved in `prompts/` until their videos are added.
 
 ## Collections
 - **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
