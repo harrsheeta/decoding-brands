@@ -9,10 +9,11 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **Dairy** (prompts 27–32) and **Paparazzi Economy** (prompts 33–41): each plays its video from Google Drive in an embedded player.
 - **Celebrity Brands** (prompts 42–54): videos play from Google Drive, with hover previews.
 - **Chinese Brands** (prompts 55–69): videos play from Google Drive, with hover previews.
+- **Pantone** (prompts 70–73) and **YouTube Premium** (prompts 74–78): videos play from Google Drive, with hover previews.
 - **Inspo**: reference animations from the idk show (prompts 18–24), played as YouTube embeds with a muted preview on hover. Prompts 25 and 26 are saved in `prompts/` until their videos are added.
 
 ## Collections
-- **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards, Text Animation, B-Roll & Transition, B-Roll Ideas, UI Animation): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
+- **Animation Prompts** (filters: Map Animation, Motion Graphics, Timeline Animation, Article Animation, Graph Animation, 1/2/3 Cards, Text Animation, B-Roll & Transition, Peak Animation, B-Roll Ideas, UI Animation): Rockstar Studios World Map, Rockstar → RDR2: 87 Million Sold, Rockstar Money Run, John Wick → iPhone Cards (GTA VI project), GTA Online Spending Graph, GTA V Buy-Play-Finish, Take-Two Annual Report. Each has a preview video, a storyboard and the full prompt.
 - **Sound Effects**: Marker Pass, Cut Click, with waveform players.
 - **Sound (Music Catalog)**: Think School, IDK Show and Fern tabs, laid out like the music-catalog scan (Fern lists the 36 tracks credited in The iPhone Battery Conspiracy; its 25 Epidemic Sound tracks stream their store preview in the waveform player). Each track has its match status, store link, the videos and timestamps it was heard at, and a waveform player for its evidence clip. You can filter by text, status or video. Think School also has tempo tiles for the suggested tracks.
 - **Visuals (brand assets)**: master logo, brand style guide 2024, brand pattern, paper texture, podcast logo intro, end screens, podcast thumbnails (PSD), and After Effects / Illustrator source files. The full files live in `assets/brand/` and download from the vault when it's served from this repo.
