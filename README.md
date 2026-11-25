@@ -10,6 +10,7 @@ A self-contained asset library for Decoding Brands edits: animation prompts, sou
 - **Celebrity Brands** (prompts 42–54): videos play from Google Drive, with hover previews.
 - **Chinese Brands** (prompts 55–69): videos play from Google Drive, with hover previews.
 - **Pantone** (prompts 70–73) and **YouTube Premium** (prompts 74–78): videos play from Google Drive, with hover previews.
+- **Meta Eyewear** (prompts 79–88): videos play from Google Drive, with hover previews.
 - **Inspo**: reference animations from the idk show (prompts 18–24), played as YouTube embeds with a muted preview on hover. Prompts 25 and 26 are saved in `prompts/` until their videos are added.
 
 ## Collections
